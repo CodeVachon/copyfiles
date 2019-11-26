@@ -1,0 +1,58 @@
+stages:
+    - test
+    - build
+    - deploy
+
+"Test":
+    stage: test
+    image: node:10.15-slim
+    script:
+        - npm install
+        - npm test
+    tags:
+        - node
+        - test
+    cache:
+        key: node-test
+        paths:
+            - node_modules/
+
+"Deploy To LPM":
+    stage: deploy
+    script:
+        - npm install
+        - npm run build
+        - npm-cli-login -u $LPM_USERNAME -p $LPM_PASSWORD -e $LPM_EMAIL -r $LPM_REGISTRY
+        - npm publish --registry $LPM_REGISTRY
+    only:
+        - master
+    tags:
+        - docker
+        - deploy
+    cache:
+        key: buildcache
+        paths:
+            - node_modules/
+
+pages:
+    stage: build
+    image: node:10.15-slim
+    script:
+        - npm install
+        - npm run docs
+        - mv ./docs public
+    artifacts:
+        paths:
+            - public
+    cache:
+        key: install_cache
+        paths:
+            - node_modules
+    environment:
+        name: documentation
+        url: https://lpm.pages.labx.com/copyfiles/
+    only:
+        - master
+    tags:
+        - docker
+        - build
