@@ -1,6 +1,6 @@
 {
   "name": "@lpm/copyfiles",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Copy Files from One Directory to Another",
   "main": "./dist/module.js",
   "repository": "git@gitlab.labx.com:lpm/copyfiles.git",
