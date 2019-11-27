@@ -1,26 +1,24 @@
 Copy Files
 ==========
 
-[TypeDoc](https://lpm.pages.labx.com/copyfiles/) [LPM](http://lpm.labx.local/-/web/detail/@lpm/copyfiles)
-
 Copy Files from one Directory to Another
 
 ## Install
 add this to your `.npmrc` file.
 
 ```sh
-@lpm:registry=http://lpm.labx.local/
+@christophervachon:registry=https://npm.christophervachon.com
 ```
 
-and Download using NPM Scope `@lpm`
+and Download using NPM Scope `@christophervachon`
 
 ```sh
-npm install @lpm/copyfiles extend inquirer
+npm install @christophervachon/copyfiles extend inquirer
 ```
 
 ## Usage
 ```js
-const copyfiles = require("@lpm/copyfiles");
+const copyfiles = require("@christophervachon/copyfiles");
 
 copyfiles("./src/images/", "./public/images/").then(result => {
     console.log(result);

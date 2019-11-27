@@ -1,10 +1,11 @@
 {
-  "name": "@lpm/copyfiles",
-  "version": "0.0.1",
+  "name": "@christophervachon/copyfiles",
+  "version": "0.0.0",
   "description": "Copy Files from One Directory to Another",
   "main": "./dist/module.js",
-  "repository": "git@gitlab.labx.com:lpm/copyfiles.git",
-  "author": "Christopher Vachon <chrisv@labx.com>",
+  "types": "./dist/module.d.ts",
+  "repository": "git@github.com:CodeVachon/copyfiles.git",
+  "author": "Christopher Vachon <code@christophervachon.com>",
   "license": "MIT",
   "scripts": {
     "start": "gulp watch",
